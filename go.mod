@@ -1,4 +1,4 @@
-module grpc-chat-2
+module go-chat
 
 go 1.16
 

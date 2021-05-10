@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"grpc-chat-2/protos/protogen"
+	"go-chat/protos/protogen"
 	"log"
 	"net"
 	"os"
