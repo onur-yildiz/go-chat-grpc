@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"go-chat/protos/protogen"
 	"log"
 	"net"
@@ -33,7 +34,7 @@ func main() {
 		log.Fatalf("Error creating the server: %v", err)
 	}
 
-	grpcLog.Info("Starting server at port 8080")
+	grpcLog.Info(fmt.Sprintf("Starting server at %v", listener.Addr()))
 
 	protogen.RegisterBroadcastServer(grpcServer, server)
 	grpcServer.Serve(listener)
