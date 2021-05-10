@@ -1,1 +1,1 @@
-worker: bin/go-chat
+web: bin/go-chat
