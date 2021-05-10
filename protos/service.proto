@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package protogen;
+
+option go_package = "protos/protogen";
+
+message User {
+  string id = 1;
+  string name = 2;
+}
+
+message FileContent {
+  string mimeType = 1;
+  string fileExtension = 2;
+  string fileName = 3;
+  string data = 4;
+}
+
+message Message {
+  User user = 1;
+  string timestamp = 2;
+  oneof data {
+    string text = 3;
+    FileContent file = 4;
+  }
+}
+
+message Connect {
+  User user = 1;
+  bool active = 2;
+}
+
+message Empty {}
+
+service Broadcast {
+  rpc CreateStream(Connect) returns (stream Message);
+  rpc BroadcastMessage(Message) returns (Empty);
+}
